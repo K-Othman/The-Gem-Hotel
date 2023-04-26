@@ -7,3 +7,10 @@ body {
   font-family: "Roboto", sans-serif;
   font-family: "Tajawal", sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
