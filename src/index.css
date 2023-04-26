@@ -14,3 +14,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.icon {
+  color: #af9a7d;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.25rem;
+}
