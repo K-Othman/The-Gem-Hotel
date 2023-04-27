@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Rooms from "./pages/Rooms";
 import Contact from "./pages/Contact";
+import SingleRoom from "./pages/SingleRoom";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/rooms/:roomId" element={<SingleRoom />} />
       </Routes>
     </main>
   );

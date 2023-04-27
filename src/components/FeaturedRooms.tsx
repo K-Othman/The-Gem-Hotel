@@ -30,7 +30,7 @@ export default function FeaturedRooms() {
                 <p className="absolute top-0 text-white bg-[rgba(0,0,0,.5)] p-4 rounded-r text-center">
                   £ {room.price} <br /> per night
                 </p>
-                <Link to="/rooms">
+                <Link to="/rooms/:roomId">
                   <p className="text-center text-2xl bg-[#CFCFCF] py-2">
                     {room.max_capacity}
                   </p>
