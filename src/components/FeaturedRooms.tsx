@@ -11,7 +11,7 @@ interface Room {
 export default function FeaturedRooms() {
   return (
     <section>
-      <div className="py-10">
+      <article className="py-10">
         <div className="text-center pb-10">
           <h2 className="text-4xl tracking-wider">Featured - Rooms</h2>
           <span className="w-24 bg-secondary-color h-1 mx-auto block"></span>
@@ -39,7 +39,7 @@ export default function FeaturedRooms() {
             );
           })}
         </div>
-      </div>
+      </article>
     </section>
   );
 }
