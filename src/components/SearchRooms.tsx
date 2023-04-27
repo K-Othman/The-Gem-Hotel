@@ -21,7 +21,7 @@ export default function SearchRooms() {
   };
 
   const notAllowedPetsHandler = () => {
-    setRooms([...filteredRooms].filter((room) => room.pets_allowed));
+    setRooms([...filteredRooms].filter((room) => !room.pets_allowed));
   };
 
   return (
