@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "price": 100,
+    "size": "200 sq ft",
+    "max_capacity": "Double Deluxe",
+    "description": "Cozy room with a queen-sized bed and a private bathroom. Perfect for couples or solo travelers.",
+    "pets_allowed": false,
+    "images": ["../../imgs/room1-1.avif", "../../imgs/room1-2.avif"],
+    "features": ["Free Wi-Fi", "Air conditioning", "Flat-screen TV"]
+  },
+  {
+    "id": 2,
+    "price": 150,
+    "size": "300 sq ft",
+    "max_capacity": "Triple Deluxe",
+    "description": "Spacious room with a king-sized bed and a sofa bed. Ideal for families or small groups.",
+    "pets_allowed": true,
+    "images": ["../imgs/r2-1.jpg", "../imgs/r2-2.jpg"],
+    "features": [
+      "Free Wi-Fi",
+      "Air conditioning",
+      "Flat-screen TV",
+      "Mini-fridge",
+      "Microwave"
+    ]
+  },
+  {
+    "id": 3,
+    "price": 80,
+    "size": "180 sq ft",
+    "max_capacity": "Single Deluxe",
+    "description": "Compact room with a single bed and a shared bathroom. Suitable for budget-conscious solo travelers.",
+    "pets_allowed": false,
+    "images": ["../imgs/r3-1.jpg", "../imgs/r3-2.jpg"],
+    "features": [
+      "Free Wi-Fi",
+      "Air conditioning",
+      "Flat-screen TV",
+      "Shared bathroom"
+    ]
+  },
+  {
+    "id": 4,
+    "price": 120,
+    "size": "250 sq ft",
+    "max_capacity": "Double Deluxe",
+    "description": "Comfortable room with a queen-sized bed and a private balcony. Great for couples who enjoy outdoor space.",
+    "pets_allowed": true,
+    "images": ["../../imgs/r4-1.avif", "../../imgs/r4-2.avif"],
+    "features": [
+      "Free Wi-Fi",
+      "Air conditioning",
+      "Flat-screen TV",
+      "Private balcony"
+    ]
+  },
+  {
+    "id": 5,
+    "price": 200,
+    "size": "400 sq ft",
+    "max_capacity": "Family Deluxe",
+    "description": "Luxurious suite with a king-sized bed, a sofa bed, and a private Jacuzzi. Perfect for a romantic getaway or a family vacation.",
+    "pets_allowed": false,
+    "images": ["../../imgs/r5-1.avif", "../../imgs/r5-2.avif"],
+    "features": [
+      "Free Wi-Fi",
+      "Air conditioning",
+      "Flat-screen TV",
+      "Mini-fridge",
+      "Microwave",
+      "Private Jacuzzi"
+    ]
+  },
+  {
+    "id": 6,
+    "price": 90,
+    "size": "190 sq ft",
+    "max_capacity": "Single Deluxe",
+    "description": "Simple room with a single bed and a shared bathroom. Suitable for solo travelers who value affordability.",
+    "pets_allowed": true,
+    "images": ["../../imgs/r6-1.avif", "../../imgs/r6-2.avif"],
+    "features": [
+      "Free Wi-Fi",
+      "Air conditioning",
+      "Flat-screen TV",
+      "Private balcony"
+    ]
+  }
+]
