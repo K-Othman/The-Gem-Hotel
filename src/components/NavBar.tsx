@@ -30,7 +30,7 @@ export default function NavBar() {
         </div>
 
         <div className="sm:hidden">
-          <button onClick={toggleNav}>
+          <button onClick={toggleNav} className="transition-all duration-1000">
             <svg
               fill="currentColor"
               viewBox="0 0 16 16"
@@ -42,8 +42,8 @@ export default function NavBar() {
             <div
               className={
                 isOpen
-                  ? "flex flex-col gap-2 p-4 absolute z-10 bg-[#F7F7F7]  top-12 left-0 text-left w-[100%]"
-                  : "hidden"
+                  ? "flex flex-col gap-2 p-4 z-10 bg-[#F7F7F7] text-left w-[100%] transition-all duration-1000"
+                  : "hidden transition-all duration-1000"
               }
             >
               <Link to="/">HOME</Link>
