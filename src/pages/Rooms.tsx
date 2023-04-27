@@ -1,3 +1,9 @@
+import RoomsBanner from "../components/RoomsBanner";
+
 export default function Rooms() {
-  return <div>Rooms</div>;
+  return (
+    <section>
+      <RoomsBanner />
+    </section>
+  );
 }
