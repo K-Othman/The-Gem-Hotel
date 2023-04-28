@@ -4,6 +4,8 @@ import hotelRooms from "../data/rooms.json";
 export default function SearchRooms() {
   const [rooms, setRooms] = useState(hotelRooms);
   const [filteredRooms, setFilteredRooms] = useState(hotelRooms);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedRoomType, setSelectedRoomType] = useState("all");
 
   const sortedByPriceAce = () => {
     setRooms(
@@ -24,6 +26,16 @@ export default function SearchRooms() {
     setRooms([...filteredRooms].filter((room) => !room.pets_allowed));
   };
 
+  const handleRoomTypeChange = (roomType: string) => {
+    if (roomType === "all") {
+      setRooms(filteredRooms);
+    } else {
+      setRooms(
+        [...filteredRooms].filter((room) => room.max_capacity === roomType)
+      );
+    }
+  };
+
   return (
     <section className="py-10">
       <article>
@@ -34,11 +46,33 @@ export default function SearchRooms() {
       </article>
       <article>
         <div>
-          <div className="flex flex-col">
+          <div className="flex flex-col pb-48">
             <button onClick={sortedByPriceAce}>ACE</button>
             <button onClick={sortedByPriceDec}>DEC</button>
             <button onClick={allowedPetsHandler}>Allowed Pets</button>
             <button onClick={notAllowedPetsHandler}>Not Allowed Pets</button>
+            <div>
+              <button onClick={() => setIsOpen(!isOpen)}>Room Type</button>
+              {isOpen && (
+                <div className="flex flex-col justify-center items-start z-10">
+                  <button onClick={() => handleRoomTypeChange("all")}>
+                    All
+                  </button>
+                  <button onClick={() => handleRoomTypeChange("Single Deluxe")}>
+                    Single
+                  </button>
+                  <button onClick={() => handleRoomTypeChange("Double Deluxe")}>
+                    Double
+                  </button>
+                  <button onClick={() => handleRoomTypeChange("Triple Deluxe")}>
+                    Triple
+                  </button>
+                  <button onClick={() => handleRoomTypeChange("Family Deluxe")}>
+                    Family
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           {rooms.map((room) => {
@@ -55,3 +89,20 @@ export default function SearchRooms() {
     </section>
   );
 }
+
+// <label htmlFor="type">Room Type</label>
+// <select
+//   name="type"
+//   id="type"
+//   value={selectedRoomType}
+//   onChange={(e) => setSelectedRoomType(e.target.value)}
+// >
+//   <option value="all">All</option>
+//   <option value="Single Deluxe">
+//     <button>Single Deluxe</button>
+//   </option>
+//   <option value="Double Deluxe">Double Deluxe</option>
+//   <option value="Triple Deluxe">Triple Deluxe</option>
+//   <option value="Family Deluxe">Family Deluxe</option>
+// </select>
+// {/* <button onClick={filterByType}>Filter</button> */}
