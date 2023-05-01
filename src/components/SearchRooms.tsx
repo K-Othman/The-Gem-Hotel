@@ -74,6 +74,9 @@ export default function SearchRooms() {
               )}
             </div>
           </div>
+          <div>
+            <input type="checkbox" />
+          </div>
 
           {rooms.map((room) => {
             return (
