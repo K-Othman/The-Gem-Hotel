@@ -1,11 +1,11 @@
-// import { ReactNode, createContext } from "react";
+import { FC, ReactNode, createContext } from "react";
 
-// type props = {
-//     children : ReactNode
-// }
+type Props = {
+  children: ReactNode;
+};
 
-// export const RoomsContext = createContext({})
+export const RoomsContext = createContext({});
 
-// export default function SearchRoomsContext() {
-//   return <div>SearchRoomsContext</div>;
-// }
+export const SearchRoomsContext: FC<Props> = ({ children }) => {
+  return <div>{children}</div>;
+};
