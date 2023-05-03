@@ -6,6 +6,7 @@
     "max_capacity": "Double Deluxe",
     "description": "Cozy room with a queen-sized bed and a private bathroom. Perfect for couples or solo travelers.",
     "pets_allowed": false,
+    "full_board": true,
     "images": ["../../imgs/room1-1.avif", "../../imgs/room1-2.avif"],
     "features": ["Free Wi-Fi", "Air conditioning", "Flat-screen TV"]
   },
