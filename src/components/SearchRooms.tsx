@@ -1,40 +1,18 @@
-import { useState } from "react";
-import hotelRooms from "../data/rooms.json";
+import { useContext, useState } from "react";
+// import hotelRooms from "../data/rooms.json";
+import { RoomsContext } from "../context/SearchRoomsContext";
 
 export default function SearchRooms() {
-  const [rooms, setRooms] = useState(hotelRooms);
-  const [filteredRooms, setFilteredRooms] = useState(hotelRooms);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedRoomType, setSelectedRoomType] = useState("all");
 
-  const sortedByPriceAce = () => {
-    setRooms(
-      [...filteredRooms].sort((a, b) => a.price - b.price || a.id - b.id)
-    );
-  };
-  const sortedByPriceDec = () => {
-    setRooms(
-      [...filteredRooms].sort((a, b) => b.price - a.price || a.id - b.id)
-    );
-  };
-
-  const allowedPetsHandler = () => {
-    setRooms([...filteredRooms].filter((room) => room.pets_allowed));
-  };
-
-  const notAllowedPetsHandler = () => {
-    setRooms([...filteredRooms].filter((room) => !room.pets_allowed));
-  };
-
-  const handleRoomTypeChange = (roomType: string) => {
-    if (roomType === "all") {
-      setRooms(filteredRooms);
-    } else {
-      setRooms(
-        [...filteredRooms].filter((room) => room.max_capacity === roomType)
-      );
-    }
-  };
+  const {
+    allowedPetsHandler,
+    notAllowedPetsHandler,
+    sortedByPriceAce,
+    sortedByPriceDec,
+    handleRoomTypeChange,
+    rooms,
+  } = useContext(RoomsContext);
 
   return (
     <section className="py-10">
@@ -74,9 +52,6 @@ export default function SearchRooms() {
               )}
             </div>
           </div>
-          <div>
-            <input type="checkbox" />
-          </div>
 
           {rooms.map((room) => {
             return (
@@ -92,20 +67,3 @@ export default function SearchRooms() {
     </section>
   );
 }
-
-// <label htmlFor="type">Room Type</label>
-// <select
-//   name="type"
-//   id="type"
-//   value={selectedRoomType}
-//   onChange={(e) => setSelectedRoomType(e.target.value)}
-// >
-//   <option value="all">All</option>
-//   <option value="Single Deluxe">
-//     <button>Single Deluxe</button>
-//   </option>
-//   <option value="Double Deluxe">Double Deluxe</option>
-//   <option value="Triple Deluxe">Triple Deluxe</option>
-//   <option value="Family Deluxe">Family Deluxe</option>
-// </select>
-// {/* <button onClick={filterByType}>Filter</button> */}
