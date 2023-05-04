@@ -1,5 +1,5 @@
-import github from "../../imgs/github.png";
-import linkedin from "../../imgs/linkedin.png";
+import github from "../../../imgs/github.png";
+import linkedin from "../../../imgs/linkedin.png";
 export default function Footer() {
   return (
     <section className="bg-main-color flex flex-col justify-center items-center h-60">

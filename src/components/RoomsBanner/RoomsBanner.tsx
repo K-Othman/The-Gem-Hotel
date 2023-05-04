@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import rooms from "../../imgs/rooms.jpg";
+import rooms from "../../../imgs/rooms.jpg";
 
 export default function Rooms() {
   return (
