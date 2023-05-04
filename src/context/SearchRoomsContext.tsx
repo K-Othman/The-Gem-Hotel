@@ -1,6 +1,7 @@
 import hotelRooms from "../data/rooms.json";
 
 import {
+  ChangeEvent,
   FC,
   ReactNode,
   createContext,
@@ -31,6 +32,7 @@ export interface IRoomsContext {
   sortedByPriceAce: () => void;
   sortedByPriceDec: () => void;
   handleRoomTypeChange: (roomType: string) => void;
+  //   handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const RoomsContext = createContext<IRoomsContext>({} as IRoomsContext);
@@ -51,6 +53,18 @@ export const SearchRoomsContext: FC<Props> = ({ children }) => {
   const sortedByPriceDec = useCallback(() => {
     setRooms([...rooms].sort((a, b) => b.price - a.price || a.id - b.id));
   }, [rooms]);
+  //   const handlePriceChange = useCallback(
+  //     (event: ChangeEvent<HTMLInputElement>) => {
+  //       const value = event.target.value;
+  //       if (value === "ace") {
+  //         sortedByPriceAce();
+  //       } else if (value === "dec") {
+  //         sortedByPriceDec();
+  //       }
+  //       console.log(value);
+  //     },
+  //     [sortedByPriceDec, sortedByPriceAce]
+  //   );
 
   const handleRoomTypeChange = useCallback((roomType: string) => {
     if (roomType === "all") {
