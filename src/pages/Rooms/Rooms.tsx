@@ -1,5 +1,5 @@
-import RoomsBanner from "../../components/RoomsBanner";
-import SearchRooms from "../../components/SearchRooms";
+import RoomsBanner from "../../components/RoomsBanner/RoomsBanner";
+import SearchRooms from "../../components/SearchRooms/SearchRooms";
 
 export default function Rooms() {
   return (

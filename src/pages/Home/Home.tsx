@@ -1,4 +1,4 @@
-import FeaturedRooms from "../../components/FeaturedRooms";
+import FeaturedRooms from "../../components/FeaturedRooms/FeaturedRooms";
 import Footer from "../../components/Footer";
 import LandingPage from "../../components/LandingPage";
 import Services from "../../components/Services";

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import hotelRooms from "../data/rooms.json";
+import hotelRooms from "../../data/rooms.json";
 
 interface Room {
   id: number;

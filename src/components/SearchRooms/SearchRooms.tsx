@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 // import hotelRooms from "../data/rooms.json";
-import { RoomsContext } from "../context/SearchRoomsContext";
+import { RoomsContext } from "../../context/SearchRoomsContext";
 
 export default function SearchRooms() {
   const [isOpen, setIsOpen] = useState(false);
