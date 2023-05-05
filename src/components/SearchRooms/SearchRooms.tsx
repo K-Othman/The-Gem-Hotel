@@ -1,6 +1,7 @@
 import { useContext } from "react";
 // import hotelRooms from "../data/rooms.json";
 import { RoomsContext } from "../../context/SearchRoomsContext";
+import { Link } from "react-router-dom";
 
 export default function SearchRooms() {
   // const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function SearchRooms() {
   } = useContext(RoomsContext);
 
   return (
-    <section className="py-10">
+    <section className="py-10 container mx-auto">
       <article>
         <div className="text-center">
           <h2 className="text-4xl tracking-wider">Services</h2>
@@ -24,7 +25,7 @@ export default function SearchRooms() {
       </article>
       <article>
         <div>
-          <div className="flex justify-around pb-48">
+          <div className="flex gap-10 mt-10">
             <div>
               <p>Price</p>
               <button onClick={sortedByPriceAce}>
@@ -49,7 +50,7 @@ export default function SearchRooms() {
               </button>
             </div>
             <div>
-              <span className="w-14 h-9 bottom-0 border-main-color bg-black"></span>
+              <span className="w-[100px] h-[50px] border-1 border-main-color bg-black"></span>
               <button onClick={allowedPetsHandler}>Allowed </button>
               <button onClick={notAllowedPetsHandler}>Not Allowed</button>
             </div>
@@ -70,16 +71,30 @@ export default function SearchRooms() {
               </div>
             </div>
           </div>
-
-          {rooms.map((room) => {
-            return (
-              <div key={room.id} className="w-[250px]">
-                <img src={room.images[0]} alt={room.description} />
-                <p>{room.features}</p>
-                <p>{room.price}</p>
-              </div>
-            );
-          })}
+          <div className="px-7 md:px-0 grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 gap-7 gap-y-10">
+            {rooms.map((room) => {
+              return (
+                <div
+                  key={room.id}
+                  className="relative shadow-md shadow-[rgba(0,0,0,.5)] hover:shadow-xl transition hover:shadow-[rgba(0,0,0,.5)]"
+                >
+                  <img
+                    src={room.images[0]}
+                    alt={room.description}
+                    className="w-[100%] h-64 object-cover"
+                  />
+                  <p className="absolute top-0 text-white bg-[rgba(0,0,0,.5)] p-4 rounded-r text-center">
+                    £ {room.price} <br /> per night
+                  </p>
+                  <Link to="/rooms/:roomId">
+                    <p className="text-center text-2xl bg-[#CFCFCF] py-2">
+                      {room.max_capacity}
+                    </p>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </article>
     </section>
