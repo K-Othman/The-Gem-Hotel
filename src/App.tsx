@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Rooms from "./pages/Rooms/Rooms";
 import Contact from "./pages/Contact/Contact";
 import SingleRoom from "./pages/SingleRoom/SingleRoom";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/rooms/:roomId" element={<SingleRoom />} />
       </Routes>
+      <Footer />
     </main>
   );
 }
