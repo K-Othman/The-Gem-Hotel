@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 // import hotelRooms from "../data/rooms.json";
 import { RoomsContext } from "../../context/SearchRoomsContext";
 import { Link } from "react-router-dom";
 
 export default function SearchRooms() {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [allowedPets, setAllowedPets] = useState(true);
 
   const {
     allowedPetsHandler,
@@ -50,7 +50,44 @@ export default function SearchRooms() {
               </button>
             </div>
             <div>
-              <span className="w-[100px] h-[50px] border-1 border-main-color bg-black"></span>
+              <div>
+                <div className="w-[50px] h-[20px] rounded-md relative">
+                  <button
+                    onClick={
+                      allowedPets ? notAllowedPetsHandler : allowedPetsHandler
+                    }
+                    className={`w-full h-full absolute top-0 left-0 rounded-md ${
+                      allowedPets ? "bg-red-500" : "bg-green-500"
+                    }`}
+                  >
+                    <span
+                      className={`absolute top-0 left-0 w-1/2 h-full rounded-md transition-transform ${
+                        allowedPets
+                          ? "-translate-x-full bg-red-700"
+                          : "bg-green-700"
+                      }`}
+                    ></span>
+                  </button>
+                </div>
+
+                {/* {allowedPets ? (
+                  <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
+                    <button
+                      onClick={allowedPetsHandler}
+                      className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
+                    ></button>
+                  </div>
+                ) : (
+                  <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
+                    <button
+                      onClick={notAllowedPetsHandler}
+                      className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
+                    ></button>
+                  </div>
+                )} */}
+              </div>
+              {/* the pets button */}
+
               <button onClick={allowedPetsHandler}>Allowed </button>
               <button onClick={notAllowedPetsHandler}>Not Allowed</button>
             </div>
