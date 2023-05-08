@@ -4,7 +4,7 @@ import { RoomsContext } from "../../context/SearchRoomsContext";
 import { Link } from "react-router-dom";
 
 export default function SearchRooms() {
-  const [allowedPets, setAllowedPets] = useState(true);
+  const [allowedPets, setAllowedPets] = useState(null);
 
   const {
     allowedPetsHandler,
@@ -51,23 +51,35 @@ export default function SearchRooms() {
             </div>
             <div>
               <div>
-                <div className="w-[50px] h-[20px] rounded-md relative">
+                <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
                   <button
+                    className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
+                    onClick={allowedPetsHandler}
+                  >
+                    {" "}
+                  </button>
+                  <button
+                    className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
+                    onClick={notAllowedPetsHandler}
+                  ></button>
+                  {/* <button
                     onClick={
                       allowedPets ? notAllowedPetsHandler : allowedPetsHandler
                     }
-                    className={`w-full h-full absolute top-0 left-0 rounded-md ${
-                      allowedPets ? "bg-red-500" : "bg-green-500"
-                    }`}
+                    className="w-[50px] h-[20px] rounded-md bg-main-color text-black"
                   >
-                    <span
-                      className={`absolute top-0 left-0 w-1/2 h-full rounded-md transition-transform ${
-                        allowedPets
-                          ? "-translate-x-full bg-red-700"
-                          : "bg-green-700"
-                      }`}
-                    ></span>
-                  </button>
+                    {allowedPets ? (
+                      <button
+                        onClick={allowedPetsHandler}
+                        className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
+                      ></button>
+                    ) : (
+                      <button
+                        onClick={notAllowedPetsHandler}
+                        className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
+                      ></button>
+                    )}
+                  </button> */}
                 </div>
 
                 {/* {allowedPets ? (
@@ -123,7 +135,7 @@ export default function SearchRooms() {
                   <p className="absolute top-0 text-white bg-[rgba(0,0,0,.5)] p-4 rounded-r text-center">
                     £ {room.price} <br /> per night
                   </p>
-                  <Link to="/rooms/:roomId">
+                  <Link to={`/rooms/${room.id}`}>
                     <p className="text-center text-2xl bg-[#CFCFCF] py-2">
                       {room.max_capacity}
                     </p>
