@@ -71,7 +71,7 @@ export default function SingleRoom() {
           })}
         </article>
       ) : (
-        <div>Sorry No rooms found with id</div>
+        <div>Sorry No rooms found</div>
       )}
     </section>
   );
