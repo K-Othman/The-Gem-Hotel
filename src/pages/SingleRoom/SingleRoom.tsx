@@ -13,14 +13,11 @@ interface SingleRoomParams {
 
 export default function SingleRoom() {
   const { rooms } = useContext(RoomsContext);
-  // const [singleRoom, setSingleRoom] = useState(rooms);
   const { roomId } = useParams<SingleRoomParams>();
-  console.log(roomId);
 
   const filteredRooms = rooms.filter((room) => {
     return room.id === parseInt(roomId);
   });
-  console.log(filteredRooms, "filteredRooms");
 
   return (
     <section>
@@ -29,7 +26,7 @@ export default function SingleRoom() {
           {filteredRooms.map((room) => {
             return (
               <div key={room.id}>
-                <article className="relative">
+                <article className="relative mb-10">
                   <img
                     className="h-[60vh] w-screen"
                     src={room.images[0]}
@@ -48,22 +45,36 @@ export default function SingleRoom() {
                     </Link>
                   </div>
                 </article>
-                {room.images.map((image, index) => (
-                  <img src={image} alt={room.description} key={index} />
-                ))}
-                <div>
-                  <p>{room.description}</p>
-                  <p>Price £{room.price}</p>
-                  <p>{room.size}</p>
-                  <p>{room.max_capacity}</p>
-                  <p>
-                    {room.pets_allowed
-                      ? "Pets Are Allowed"
-                      : "Pets Are Not Allowed"}
-                  </p>
-                  <div>
-                    <p>Extras</p>
-                    <p>{room.features}</p>
+                <div className="container mx-auto">
+                  <div className="flex flex-wrap gap-10">
+                    {room.images.map((image, index) => (
+                      <img
+                        className="w-[600px]"
+                        src={image}
+                        alt={room.description}
+                        key={index}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex gap-5">
+                    <div className="w-1/2">
+                      <p>Details</p>
+                      <p>{room.description}</p>
+                      <p>Price £{room.price}</p>
+                      <p>{room.size}</p>
+                      <p>{room.max_capacity}</p>
+                      <p>
+                        {room.pets_allowed
+                          ? "Pets Are Allowed"
+                          : "Pets Are Not Allowed"}
+                      </p>
+                    </div>
+                    <div className="flex-1">
+                      <p>Extras</p>
+                      <div className="flex flex-col">
+                        <p className="flex flex-col">{room.features}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
