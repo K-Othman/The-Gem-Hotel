@@ -46,36 +46,45 @@ export default function SingleRoom() {
                   </div>
                 </article>
                 <div className="container mx-auto">
-                  <div className="flex flex-wrap gap-10">
+                  <div className="w-[80wv] flex flex-wrap gap-10">
                     {room.images.map((image, index) => (
                       <img
-                        className="w-[600px]"
+                        className="md:w-[600px] w-[500px] mx-auto"
                         src={image}
                         alt={room.description}
                         key={index}
                       />
                     ))}
                   </div>
-                  <div className="flex gap-5">
-                    <div className="w-1/2">
-                      <p>Details</p>
-                      <p>{room.description}</p>
-                      <p>Price £{room.price}</p>
-                      <p>{room.size}</p>
-                      <p>{room.max_capacity}</p>
-                      <p>
-                        {room.pets_allowed
-                          ? "Pets Are Allowed"
-                          : "Pets Are Not Allowed"}
-                      </p>
-                    </div>
-                    <div className="flex-1">
-                      <p>Extras</p>
-                      <div className="flex flex-col">
-                        <p className="flex flex-col">{room.features}</p>
+                  <article className="ml-0 px-2">
+                    <article className="flex md:gap-14 flex-col md:flex-row mx-auto">
+                      <div className="my-4">
+                        <h3 className="text-3xl">Details</h3>
+                        <p className="text-lg max-w-[600px] leading-8 pt-4">
+                          {room.description}
+                        </p>
                       </div>
+                      <div className="my-4">
+                        <h3 className="text-4xl">Information</h3>
+                        <ul className="leading-8 tracking-widest">
+                          <li>Price: £{room.price}</li>
+                          <li>Size: {room.size}</li>
+                          <li>Max Capaxity: {room.max_capacity}</li>
+                          <li>
+                            {room.pets_allowed
+                              ? "Pets Are Allowed"
+                              : "Pets Are Not Allowed"}
+                          </li>
+                        </ul>
+                      </div>
+                    </article>
+                    <div className="">
+                      <p className="text-4xl">Extras</p>
+                      {room.features.map((feature) => (
+                        <p className="leading-8">- {feature}</p>
+                      ))}
                     </div>
-                  </div>
+                  </article>
                 </div>
               </div>
             );
