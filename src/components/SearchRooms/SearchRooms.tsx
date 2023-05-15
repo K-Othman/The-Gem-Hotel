@@ -4,7 +4,7 @@ import { RoomsContext } from "../../context/SearchRoomsContext";
 import { Link } from "react-router-dom";
 
 export default function SearchRooms() {
-  const [allowedPets, setAllowedPets] = useState(null);
+  const [allowedPets, setAllowedPets] = useState(true);
 
   const {
     allowedPetsHandler,
@@ -51,7 +51,14 @@ export default function SearchRooms() {
             </div>
             <div>
               <div>
-                <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" checked className="sr-only peer" />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    Toggle me
+                  </span>
+                </label>
+                {/* <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
                   <button
                     className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
                     onClick={allowedPetsHandler}
@@ -61,8 +68,8 @@ export default function SearchRooms() {
                   <button
                     className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
                     onClick={notAllowedPetsHandler}
-                  ></button>
-                  {/* <button
+                  ></button> */}
+                {/* <button
                     onClick={
                       allowedPets ? notAllowedPetsHandler : allowedPetsHandler
                     }
@@ -80,9 +87,9 @@ export default function SearchRooms() {
                       ></button>
                     )}
                   </button> */}
-                </div>
+              </div>
 
-                {/* {allowedPets ? (
+              {/* {allowedPets ? (
                   <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
                     <button
                       onClick={allowedPetsHandler}
@@ -97,54 +104,54 @@ export default function SearchRooms() {
                     ></button>
                   </div>
                 )} */}
-              </div>
-              {/* the pets button */}
+            </div>
+            {/* the pets button */}
 
-              <button onClick={allowedPetsHandler}>Allowed </button>
-              <button onClick={notAllowedPetsHandler}>Not Allowed</button>
-            </div>
-            <div>
-              <div className="flex flex-col w-fit">
-                <label htmlFor="room-type">Room Type:</label>
-                <select
-                  id="room-type"
-                  onChange={(e) => handleRoomTypeChange(e.target.value)}
-                  className="bg-main-color"
-                >
-                  <option value="all">All</option>
-                  <option value="Single Deluxe">Single</option>
-                  <option value="Double Deluxe">Double</option>
-                  <option value="Triple Deluxe">Triple</option>
-                  <option value="Family Deluxe">Family</option>
-                </select>
-              </div>
-            </div>
+            <button onClick={allowedPetsHandler}>Allowed </button>
+            <button onClick={notAllowedPetsHandler}>Not Allowed</button>
           </div>
-          <div className="px-7 md:px-0 grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 gap-7 gap-y-10">
-            {rooms.map((room) => {
-              return (
-                <div
-                  key={room.id}
-                  className="relative shadow-md shadow-[rgba(0,0,0,.5)] hover:shadow-xl transition hover:shadow-[rgba(0,0,0,.5)]"
-                >
-                  <img
-                    src={room.images[0]}
-                    alt={room.description}
-                    className="w-[100%] h-64 object-cover"
-                  />
-                  <p className="absolute top-0 text-white bg-[rgba(0,0,0,.5)] p-4 rounded-r text-center">
-                    £ {room.price} <br /> per night
-                  </p>
-                  <Link to={`/rooms/${room.id}`}>
-                    <p className="text-center text-2xl bg-[#CFCFCF] py-2">
-                      {room.max_capacity}
-                    </p>
-                  </Link>
-                </div>
-              );
-            })}
+          <div>
+            <div className="flex flex-col w-fit">
+              <label htmlFor="room-type">Room Type:</label>
+              <select
+                id="room-type"
+                onChange={(e) => handleRoomTypeChange(e.target.value)}
+                className="bg-main-color"
+              >
+                <option value="all">All</option>
+                <option value="Single Deluxe">Single</option>
+                <option value="Double Deluxe">Double</option>
+                <option value="Triple Deluxe">Triple</option>
+                <option value="Family Deluxe">Family</option>
+              </select>
+            </div>
           </div>
         </div>
+        <div className="px-7 md:px-0 grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 gap-7 gap-y-10">
+          {rooms.map((room) => {
+            return (
+              <div
+                key={room.id}
+                className="relative shadow-md shadow-[rgba(0,0,0,.5)] hover:shadow-xl transition hover:shadow-[rgba(0,0,0,.5)]"
+              >
+                <img
+                  src={room.images[0]}
+                  alt={room.description}
+                  className="w-[100%] h-64 object-cover"
+                />
+                <p className="absolute top-0 text-white bg-[rgba(0,0,0,.5)] p-4 rounded-r text-center">
+                  £ {room.price} <br /> per night
+                </p>
+                <Link to={`/rooms/${room.id}`}>
+                  <p className="text-center text-2xl bg-[#CFCFCF] py-2">
+                    {room.max_capacity}
+                  </p>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+        {/* </div> */}
       </article>
     </section>
   );

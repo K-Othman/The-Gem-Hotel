@@ -1,23 +1,30 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { RoomsContext } from "../../context/SearchRoomsContext";
+import { RoomsContext, HotelRooms } from "../../context/SearchRoomsContext";
 
 // interface SingleRoomParams {
 //   roomId: number |undefined;
 //   [key: string]: string | undefined;
 // }
-interface SingleRoomParams {
-  roomId: any | undefined;
-  [key: string]: string | undefined;
-}
+// interface SingleRoomParams {
+//   roomId: number | undefined;
+//   [key: string]: string | undefined;
+// }
 
 export default function SingleRoom() {
+  const [filteredRooms, setFilteredRooms] = useState<HotelRooms[]>([]);
   const { rooms } = useContext(RoomsContext);
-  const { roomId } = useParams<SingleRoomParams>();
+  const { roomId } = useParams();
 
-  const filteredRooms = rooms.filter((room) => {
-    return room.id === parseInt(roomId);
-  });
+  useEffect(() => {
+    if (!roomId) return;
+
+    setFilteredRooms(
+      rooms.filter((room) => {
+        return room.id === parseInt(roomId);
+      })
+    );
+  }, [roomId, rooms]);
 
   return (
     <section>
@@ -91,7 +98,7 @@ export default function SingleRoom() {
           })}
         </article>
       ) : (
-        <div>Sorry No rooms found</div>
+        <p>Sorry No rooms found</p>
       )}
     </section>
   );
