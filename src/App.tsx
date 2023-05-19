@@ -18,7 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/rooms/:roomId" element={<SingleRoom />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
