@@ -5,7 +5,7 @@ export default function LandingPage() {
   return (
     <section>
       <div>
-        <div className="relative">
+        <div>
           <div>
             <img
               className="h-[calc(100vh-68px)] min-w-full"

@@ -1,15 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { RoomsContext, HotelRooms } from "../../context/SearchRoomsContext";
-
-// interface SingleRoomParams {
-//   roomId: number |undefined;
-//   [key: string]: string | undefined;
-// }
-// interface SingleRoomParams {
-//   roomId: number | undefined;
-//   [key: string]: string | undefined;
-// }
+import Footer from "../../components/Footer/Footer";
 
 export default function SingleRoom() {
   const [filteredRooms, setFilteredRooms] = useState<HotelRooms[]>([]);
@@ -87,8 +79,10 @@ export default function SingleRoom() {
                     </article>
                     <div className="">
                       <p className="text-4xl">Extras</p>
-                      {room.features.map((feature) => (
-                        <p className="leading-8">- {feature}</p>
+                      {room.features.map((feature, index) => (
+                        <div key={index}>
+                          <p className="leading-8">- {feature}</p>
+                        </div>
                       ))}
                     </div>
                   </article>
@@ -100,6 +94,7 @@ export default function SingleRoom() {
       ) : (
         <p>Sorry No rooms found</p>
       )}
+      <Footer />
     </section>
   );
 }
