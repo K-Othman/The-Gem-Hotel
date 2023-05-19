@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { Switch } from "@headlessui/react";
+
 // import hotelRooms from "../data/rooms.json";
 import { RoomsContext } from "../../context/SearchRoomsContext";
 import { Link } from "react-router-dom";
@@ -14,6 +16,10 @@ export default function SearchRooms() {
     handleRoomTypeChange,
     rooms,
   } = useContext(RoomsContext);
+
+  const toggleAllowedPets = () => {
+    setAllowedPets(!allowedPets);
+  };
 
   return (
     <section className="py-10 container mx-auto">
@@ -51,61 +57,32 @@ export default function SearchRooms() {
             </div>
             <div>
               <div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" checked className="sr-only peer" />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Toggle me
-                  </span>
-                </label>
-                {/* <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
-                  <button
-                    className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
-                    onClick={allowedPetsHandler}
-                  >
-                    {" "}
-                  </button>
-                  <button
-                    className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
-                    onClick={notAllowedPetsHandler}
-                  ></button> */}
-                {/* <button
-                    onClick={
-                      allowedPets ? notAllowedPetsHandler : allowedPetsHandler
+                <Switch
+                  checked={allowedPets}
+                  onChange={(value) => {
+                    setAllowedPets(value);
+                    if (value) {
+                      allowedPetsHandler();
+                    } else {
+                      notAllowedPetsHandler();
                     }
-                    className="w-[50px] h-[20px] rounded-md bg-main-color text-black"
-                  >
-                    {allowedPets ? (
-                      <button
-                        onClick={allowedPetsHandler}
-                        className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
-                      ></button>
-                    ) : (
-                      <button
-                        onClick={notAllowedPetsHandler}
-                        className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
-                      ></button>
-                    )}
-                  </button> */}
+                  }}
+                  className={`${
+                    allowedPets ? "bg-secondary-color" : "bg-gray-200"
+                  } relative inline-flex h-6 w-11 items-center rounded-full`}
+                >
+                  <span className="sr-only">Pets</span>
+                  <span
+                    className={`${
+                      allowedPets ? "translate-x-6" : "translate-x-1"
+                    } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+                  />
+                </Switch>
+                <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  Pets
+                </span>
               </div>
-
-              {/* {allowedPets ? (
-                  <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
-                    <button
-                      onClick={allowedPetsHandler}
-                      className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex"
-                    ></button>
-                  </div>
-                ) : (
-                  <div className="w-[50px] h-[20px] rounded-md relative bg-main-color text-black">
-                    <button
-                      onClick={notAllowedPetsHandler}
-                      className="absolute top-0 w-[50%] h-[100%] bg-secondary-color flex translate-x-[100%]"
-                    ></button>
-                  </div>
-                )} */}
             </div>
-            {/* the pets button */}
 
             <button onClick={allowedPetsHandler}>Allowed </button>
             <button onClick={notAllowedPetsHandler}>Not Allowed</button>
