@@ -14,26 +14,23 @@ export default function SearchRooms() {
     sortedByPriceAce,
     sortedByPriceDec,
     handleRoomTypeChange,
+    reset,
     rooms,
   } = useContext(RoomsContext);
-
-  const toggleAllowedPets = () => {
-    setAllowedPets(!allowedPets);
-  };
 
   return (
     <section className="py-10 container mx-auto">
       <article>
         <div className="text-center">
-          <h2 className="text-4xl tracking-wider">Services</h2>
+          <h2 className="text-4xl tracking-wider">Search Rooms</h2>
           <span className="w-20 bg-secondary-color h-1 mx-auto block"></span>
         </div>
       </article>
       <article>
         <div>
-          <div className="flex gap-10 mt-10">
+          <div className="flex md:justify-end gap-10 my-10 justify-center">
             <div>
-              <p>Price</p>
+              <p className="text-xl">Price</p>
               <button onClick={sortedByPriceAce}>
                 <svg
                   viewBox="0 0 1024 1024"
@@ -56,7 +53,10 @@ export default function SearchRooms() {
               </button>
             </div>
             <div>
-              <div>
+              <div className="flex flex-col items-center">
+                <span className="ml- text-xl font-medium text-gray-900 dark:text-gray-300">
+                  Pets
+                </span>
                 <Switch
                   checked={allowedPets}
                   onChange={(value) => {
@@ -78,16 +78,8 @@ export default function SearchRooms() {
                     } inline-block h-4 w-4 transform rounded-full bg-white transition`}
                   />
                 </Switch>
-                <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  Pets
-                </span>
               </div>
             </div>
-
-            <button onClick={allowedPetsHandler}>Allowed </button>
-            <button onClick={notAllowedPetsHandler}>Not Allowed</button>
-          </div>
-          <div>
             <div className="flex flex-col w-fit">
               <label htmlFor="room-type">Room Type:</label>
               <select
@@ -101,6 +93,11 @@ export default function SearchRooms() {
                 <option value="Triple Deluxe">Triple</option>
                 <option value="Family Deluxe">Family</option>
               </select>
+            </div>
+            <div>
+              <button className="text-xl mt-3" onClick={reset}>
+                Reset
+              </button>
             </div>
           </div>
         </div>

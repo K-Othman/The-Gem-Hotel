@@ -1,7 +1,6 @@
 import hotelRooms from "../data/rooms.json";
 
 import {
-  ChangeEvent,
   FC,
   ReactNode,
   createContext,
@@ -32,7 +31,7 @@ export interface IRoomsContext {
   sortedByPriceAce: () => void;
   sortedByPriceDec: () => void;
   handleRoomTypeChange: (roomType: string) => void;
-  //   handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  reset: () => void;
 }
 
 export const RoomsContext = createContext<IRoomsContext>({} as IRoomsContext);
@@ -64,6 +63,10 @@ export const SearchRoomsContext: FC<Props> = ({ children }) => {
     }
   }, []);
 
+  const reset = useCallback(() => {
+    setRooms(hotelRooms);
+  }, []);
+
   const RoomsContextValue = useMemo(
     () => ({
       allowedPetsHandler,
@@ -71,6 +74,7 @@ export const SearchRoomsContext: FC<Props> = ({ children }) => {
       sortedByPriceAce,
       sortedByPriceDec,
       handleRoomTypeChange,
+      reset,
       hotelRooms,
       rooms,
     }),
@@ -81,6 +85,7 @@ export const SearchRoomsContext: FC<Props> = ({ children }) => {
       sortedByPriceAce,
       sortedByPriceDec,
       handleRoomTypeChange,
+      reset,
     ]
   );
   return (
