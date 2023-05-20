@@ -64,7 +64,7 @@ export default function App() {
                 </div>
               </div>
               <div className="p-2 w-full">
-                <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                <button className="flex mx-auto text-white bg-secondary-color border-[2px] hover:border-secondary-color hover:bg-main-color hover:text-black py-2 px-8 focus:outline-none transition rounded text-lg">
                   Button
                 </button>
               </div>
