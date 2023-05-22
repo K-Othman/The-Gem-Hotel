@@ -125,7 +125,6 @@ export default function SearchRooms() {
             );
           })}
         </div>
-        {/* </div> */}
       </article>
     </section>
   );
