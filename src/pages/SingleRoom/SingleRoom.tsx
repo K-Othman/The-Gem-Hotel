@@ -92,7 +92,9 @@ export default function SingleRoom() {
           })}
         </article>
       ) : (
-        <p>Sorry No rooms found</p>
+        <article className="h-[calc(100vh-170px)] flex justify-center items-center">
+          <p className="text-4xl text-red-500">Sorry No rooms found</p>
+        </article>
       )}
       <Footer />
     </section>

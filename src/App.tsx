@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Rooms from "./pages/Rooms/Rooms";
 import Contact from "./pages/Contact/Contact";
 import SingleRoom from "./pages/SingleRoom/SingleRoom";
-import Footer from "./components/Footer/Footer";
+import { Error404 } from "./pages/Error/Error404";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/rooms/:roomId" element={<SingleRoom />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
-      {/* <Footer /> */}
     </main>
   );
 }
