@@ -66,12 +66,19 @@ export default function App() {
                 </div>
               </div>
               <div className="p-2 w-full">
-                <button className="flex mx-auto text-white bg-secondary-color border-[2px] hover:border-secondary-color hover:bg-main-color hover:text-black py-2 px-8 focus:outline-none transition rounded text-lg tracking-wider">
+                <button className="flex mx-auto text-white bg-secondary-color border-[2px] hover:border-secondary-color hover:bg-main-color py-2 px-8 focus:outline-none hover:text-secondary-color transition rounded text-lg tracking-wider">
                   Send
                 </button>
               </div>
               <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                <a className="text-indigo-500">example@email.com</a>
+                <a
+                  className="text-indigo-500"
+                  href="mailto:karim_othman88@hotmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  karim_othman88@hotmail.com
+                </a>
                 <p className="leading-normal my-5">
                   49 Manc St.
                   <br />

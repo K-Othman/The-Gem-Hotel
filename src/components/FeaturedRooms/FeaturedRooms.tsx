@@ -26,6 +26,7 @@ export default function FeaturedRooms() {
                 <img
                   className="w-[100%] h-64 object-cover"
                   src={room.images[0]}
+                  alt={room.max_capacity}
                 />
                 <p className="absolute top-0 text-white bg-[rgba(0,0,0,.5)] p-4 rounded-r text-center">
                   £ {room.price} <br /> per night
