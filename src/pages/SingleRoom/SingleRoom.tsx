@@ -45,10 +45,10 @@ export default function SingleRoom() {
                   </div>
                 </article>
                 <div className="container mx-auto">
-                  <div className="w-[80wv] flex flex-wrap gap-10">
+                  <div className="w-[80wv] flex flex-wrap gap-10 ">
                     {room.images.map((image, index) => (
                       <img
-                        className="md:w-[600px] w-[500px] mx-auto"
+                        className="md:w-[600px] w-[500px] mx-auto h-[100%]"
                         src={image}
                         alt={room.description}
                         key={index}

@@ -2,7 +2,7 @@ import github from "../../../imgs/github.png";
 import linkedin from "../../../imgs/linkedin.png";
 export default function Footer() {
   return (
-    <section className="bg-main-color flex flex-col justify-center items-center h-60">
+    <section className="bg-main-color flex flex-col justify-center items-center py-7">
       <article>
         <h2>Made With Love By Karim</h2>
       </article>
