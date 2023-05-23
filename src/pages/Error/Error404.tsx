@@ -10,7 +10,6 @@ export function Error404({ msg = "404 Page not found" }) {
           exist on this site.
         </p>
         <Link className="underline " to="/">
-          {" "}
           Back to our site
         </Link>
       </div>
