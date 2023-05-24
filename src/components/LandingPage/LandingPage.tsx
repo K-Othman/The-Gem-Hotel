@@ -1,4 +1,5 @@
-import landing3 from "../../../public/assets/imgs/landing3.jpg";
+import landing3 from "/imgs/landing3.jpg";
+
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {
