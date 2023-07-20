@@ -17,7 +17,7 @@
     "max_capacity": "Triple Deluxe",
     "description": "Spacious room with a king-sized bed and a sofa bed. Ideal for families or small groups.",
     "pets_allowed": true,
-    "images": ["imgs/r2-1.jpg", "imgs/r2-2.jpg"],
+    "images": ["/imgs/r3-2.jpg", "/imgs/r4-2.avif"],
     "features": [
       "Free Wi-Fi",
       "Air conditioning",
